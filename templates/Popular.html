@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <style>
+        body{
+    background-color: #0c7b93;
+    background-image: url("https://static01.nyt.com/images/2019/12/06/books/06critics-list1/06critics-list1-videoSixteenByNineJumbo1600.jpg");
+    height: 1%;
+    background-blend-mode: lighten;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top;
+    padding-bottom: 2%;
+
+    text-align: center;
+    /*-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;*/
+    background-size: contain;}
+</style>
+    <meta charset="utf-8">
+    <title>BookStore</title>
+<style>
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+</style>
+
+<div><button class="button" onclick="location.href = '/ORM'" >ORM Publications </button>
+   <button class="button" onclick="location.href = '/Index'" >All Publisher </button>
+</div>
+</head>
+<body>
+
+<h1>BookStore</h1>
+<style>
+table {
+  counter-reset: section;
+}
+
+.count:before {
+  counter-increment: section;
+  content: counter(section);
+}
+</style>
+<center>
+<table >
+    <tr>
+        <th>Ranking</th>
+        <th>Author</th>
+        <th>Page</th>
+        <th>Publication Date</th>
+    </tr>
+    {%  for result in search%}
+    <tr>
+        <td class="count"></td>
+        <td>{{ result.author }}</td>
+        <td> {{ result.page }}</td>
+        <td>{{ result.publication_date }}</td>
+        <td> <a>    </a>  </td>
+    {%  endfor %}
+</table></center>
+</form>
+
+
+</body>
+
+</html>
